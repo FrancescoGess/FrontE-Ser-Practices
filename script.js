@@ -1,12 +1,24 @@
 async function getAllBooks() {
   try {
     console.log("Inizio richiesta API");
-    const response = await fetch("http://localhost:5091/api/Book", {
+    const response = await fetch("http://localhost:5091/api/Book/getAll", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
     });
+
+    async function CreateBook() {
+      try {
+        console.log("Inizio richiesta API");
+        const response = await fetch("http://localhost:5091/api/Book/CreateBook", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+    const createBook = document.createElement("div");
+    createBook.className=""
 
     console.log("Risposta ricevuta:", response);
 
@@ -24,19 +36,18 @@ async function getAllBooks() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  getAllBooks().then(books => {
-    const container = document.getElementById('books-container');
-    books.forEach(book => {
+  getAllBooks().then((books) => {
+    const container = document.getElementById("books-container");
+    books.forEach((book) => {
       const bookElement = createBookElement(book);
       container.appendChild(bookElement);
     });
   });
 });
 
-
 function createBookElement(book) {
-  const bookDiv = document.createElement('div');
-  bookDiv.className = 'max-w-sm rounded overflow-hidden shadow-lg mb-4';
+  const bookDiv = document.createElement("div");
+  bookDiv.className = "max-w-sm rounded overflow-hidden shadow-lg mb-4";
   bookDiv.innerHTML = `
     <div class="px-6 py-4 flex flex-col">
       <div class="flex flex-row justify-between">

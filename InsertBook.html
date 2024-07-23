@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="./script.js"></script>
+  <script src="./createBook.js"></script>
   <script src="./style.css"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" rel="stylesheet" />
@@ -117,7 +117,9 @@
     </div>
   </aside>
 
-  <!-- FORM DI CREAZIONE DEL LIBRO -->
+
+
+  <div id="container-form"></div>
 
   <div class="p-4 sm:ml-64">
     <div class="p-4">
@@ -127,12 +129,10 @@
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
               Titolo
             </label>
-            <input
+            <input name="title"
               class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               id="grid-first-name" type="text" placeholder="Inserisci il titolo del tuo libro">
 
-            <!-- GESTIONE DELL'ERRORE PER IL TITOLO -->
-            <!-- <p class="text-red-500 text-xs italic">Please fill out this field.</p> -->
           </div>
         </div>
         <div class="w-full md:w-1/2 mb-5">
@@ -142,10 +142,10 @@
 
           <textarea
             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-            id="grid-last-name" type="text" placeholder="Inserisci la descrizione del tuo libro" name=""
-            id=""></textarea>
+            id="grid-last-name" type="text" placeholder="Inserisci la descrizione del tuo libro" name="description"
+            id="description"></textarea>
         </div>
-        <div class="relative max-w-sm mb-5">
+        <!-- <div class="relative max-w-sm mb-5">
           <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
             <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
               fill="currentColor" viewBox="0 0 20 20">
@@ -153,49 +153,77 @@
                 d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
             </svg>
           </div>
-          <input id="datepicker-autohide" datepicker datepicker-autohide type="text"
+          <input name="anno" id="datepicker-autohide"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Inserisci la data di creazione del libro">
+        </div> -->
+
+        <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+          <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor" viewBox="0 0 20 20">
+            <path
+              d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+          </svg>
         </div>
-        <div class="flex flex-wrap -mx-3 mb-2">
-          <!-- <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-city">
-              City
-            </label>
-            <input
-              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              id="grid-city" type="text" placeholder="Albuquerque">
-          </div> -->
-          <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
-              Categoria
-            </label>
-            <div class="relative">
-              <select
-                class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-state">
-                <option>Fantasy</option>
-                <!-- <option>Missouri</option>
-                  <option>Texas</option> -->
-              </select>
-              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                  <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                </svg>
-              </div>
-            </div>
-          </div>
-          <!-- <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
-              Zip
-            </label>
-            <input
-              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              id="grid-zip" type="text" placeholder="90210">
-          </div> -->
-        </div>
-      </form>
+        <input name="anno" id="year-input" type="text"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="Inserisci l'anno di creazione del libro">
     </div>
+    <div class="flex flex-wrap -mx-3 mb-2">
+
+      <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
+          Categoria
+        </label>
+        <div class="relative">
+          <select name="category"
+            class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            id="grid-state">
+            <option>Fantasy</option>
+            <option>Horror</option>
+            <option>Action</option>
+
+            
+
+          </select>
+          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+            </svg>
+          </div>
+        </div>
+
+        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+            Id Categoria
+          </label>
+          <input name="categoryId"
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+            id="categoryId" type="text" placeholder="Inserisci il titolo del tuo libro">
+
+        </div>
+
+        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+            Id Autore
+          </label>
+          <input name="authorId"
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+            id="authorId" type="text" placeholder="Inserisci il titolo del tuo libro">
+
+        </div>
+
+        <div class="px-6 pt-4 pb-2 flex flex-col items-center">
+          <button onclick="createBook()"
+            class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded-full">
+            Crea
+          </button>
+        </div>
+      </div>
+
+    </div>
+    </form>
+  </div>
   </div>
 </body>
 
